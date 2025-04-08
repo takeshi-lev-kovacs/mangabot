@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZ Manga Managment Bots</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" href="src/ezmangalogo.svg" type="image/x-icon">
+</head>
+<body>
+
+    
+    <header>
+        <h1>EZ Manga Managment Bots</h1>
+        <p class="subtitle">General Command Documentation for the Server Managment Team</p>
+    </header>
+
+    
+    <div class="main-layout-grid">
+
+        
+        <aside id="page-map-container">
+             <nav id="page-map">
+                <h3>Commands Map</h3>
+                <ul id="map-list" class="map-list">
+                    
+                </ul>
+            </nav>
+        </aside>
+
+        
+        <div class="content-area">
+            <main>
+                <div class="controls-container">
+                    <div class="search-wrapper">
+                        <input type="search" id="search-input" placeholder="Search commands..." aria-label="Search commands">
+                    </div>
+                    <div class="filters-area">
+                        <div class="filter-group">
+                            <span>Filter by Role</span>
+                            <div class="filter-buttons" id="role-filters">
+                                <button class="active" data-filter="all" aria-pressed="true">All Roles</button>
+                                <button data-filter="general" aria-pressed="false">General</button>
+                                <button data-filter="user" aria-pressed="false">User</button>
+                                <button data-filter="admin" aria-pressed="false">Admin</button>
+                            </div>
+                        </div>
+                         <div class="filter-group">
+                            <span>Filter by Tag</span>
+                            <div class="filter-buttons" id="tag-filters">
+                                <button class="active" data-filter="all" aria-pressed="true">All Tags</button>
+                                <button data-filter="progress" aria-pressed="false">Progress</button>
+                                <button data-filter="points" aria-pressed="false">Points</button>
+                                <button data-filter="misc" aria-pressed="false">Misc</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commands-container">
+                    
+                    <div class="command-card" id="cmd-1" data-role="user" data-tags="user misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                            <div class="command-number">1</div>
+                            <div class="command-title-wrapper">
+                                <h2 class="command-title">Register</h2>
+                                <span class="tag role-tag role-tag-user">User</span>
+                                <span class="tag tag-misc">Misc</span>
+                            </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                        </div>
+                        <div class="command-content">
+                            <div class="command-details">
+                                 <p class="purpose">Purpose: Register yourself with your payment information and email address.</p>
+                                <div class="command-usage-container">
+                                    <button class="copy-btn" aria-label="Copy Register command usage">Copy</button>
+                                    <div class="command-usage">/register payment_info: <span class="param">Method: Details</span> email: <span class="param">your_email@example.com</span></div>
+                                </div>
+                                <p class="example-title">Example:</p>
+                                <div class="command-usage-container">
+                                    <button class="copy-btn" aria-label="Copy Register command example">Copy</button>
+                                    <div class="command-usage">/register payment_info: Paypal: user@example.com email: mystaffemail@gmail.com</div>
+                                </div>
+                                <p class="notes-title">Important Notes:</p>
+                                <ul class="notes-list">
+                                    <li>This command is the <strong>first step</strong> for all staff members.</li>
+                                    <li>Your <code>payment_info</code> must start with the method (e.g., <code>Paypal:</code>, <code>Binance:</code>, <code>TRC20:</code>, <code>BEP-20:</code>, <code>Phone Cash:</code>, <code>Other:</code>) followed by your <strong>address</strong>/<strong>ID</strong>/<strong>details</strong>.</li>
+                                    <li>Your email is used for access to shared resources (like <strong>Google Drive</strong>).</li>
+                                    <li>You must be registered to submit work and receive points/payments.</li>
+                                    <li>You can run this command again to update your information.</li>
+                                </ul>
+                            </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                     <div class="carousel-container" aria-label="Register Command Screenshots">
+                                         <img src="images/register.png" alt="Register Command Example 1" draggable="false" data-fullscreenable="true">
+                                     </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="command-card" id="cmd-2" data-role="user" data-tags="user progress points">
+                        <div class="command-header" role="button" aria-expanded="true">
+                            <div class="command-number">2</div>
+                            <div class="command-title-wrapper">
+                                <h2 class="command-title">Submit</h2>
+                                <span class="tag role-tag role-tag-user">User</span>
+                                <span class="tag tag-progress">Progress</span>
+                                <span class="tag tag-points">Points</span>
+                            </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                        </div>
+                        <div class="command-content">
+                            <div class="command-details">
+                                <p class="purpose">Purpose: Submit your completed work for a chapter or range of chapters, receive points, and trigger the next step in the workflow.</p>
+                                <div class="command-usage-container">
+                                    <button class="copy-btn" aria-label="Copy Submit command usage">Copy</button>
+                                    <div class="command-usage">/submit channel: <span class="param">#series-channel</span> chapter_range: <span class="param">number_or_range</span> chapter_link: <span class="param">URL_to_work</span> job: <span class="param">Job_Name</span></div>
+                                </div>
+                                <p class="example-title">Examples:</p>
+                                <div class="command-usage-container">
+                                    <button class="copy-btn" aria-label="Copy Submit command examples">Copy</button>
+                                    <div class="command-usage">/submit channel: #cool-manhwa chapter_range: 15 chapter_link: https://gdrive/link/to/ch15_TL job: Translation</div>
+                                </div>
+                                <div class="command-usage-container">
+                                    <button class="copy-btn" aria-label="Copy Submit command examples">Copy</button>
+                                    <div class="command-usage">/submit channel: #another-cool-manhwa chapter_range: 20-22 chapter_link: https://mega.nz/link/to/ch20-22_Edit job: Edit</div>
+                                </div>
+                                <p class="notes-title">Important Notes:</p>
+                                <ul class="notes-list">
+                                    <li>You must be registered (using the <code>/register</code> command) and have claimed the <strong>chapter step</strong> previously (or it must be the first step like Translation after Raw).</li>
+                                    <li><code>chapter_range</code>: Can be a single number (e.g., <code>15</code>) or a dash-separated range (e.g., <code>20-22</code>).</li>
+                                    <li><code>chapter_link</code>: A direct link (<strong>Google Drive</strong>, <strong>Mega</strong>, <strong>Mediafire</strong> etc.) where the next person can download your work. or the <strong>main drive folder</strong> if you're submitted several chapters at the same time.</li>
+                                    <li><code>job</code> Select the job you completed: <code>Translation</code>, <code>Proofreading</code>, <code>Cleaning</code>, <code>Typesetting</code>, <code>Quality Check</code>, <code>Edit</code> (combines <strong>Cleaning</strong> & <strong>Typesetting</strong>), <code>Q-Edit</code> (combines <strong>Cleaning</strong> & <strong>Typesetting</strong> & <strong>Quality Checking</strong>). <strong>Managers</strong> and <strong>Raw Providers</strong> can use <code>Raw</code>.</li>
+                                    <li>You must have the corresponding Discord role for the job you are submitting.</li>
+                                    <li>Successful submission awards points (based on the series and step pay rates) and notifies the staff member responsible for the <strong>next</strong> step in the workflow.</li>
+                                    <li>The bot will prevent submission if someone else has already claimed or completed the step for that chapter.</li>
+                                </ul>
+                            </div>
+                             <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Submit Command Screenshots">
+                                        <img src="images\submit.png" alt="Submit Command Example 1" draggable="false" data-fullscreenable="true">
+                                        <img src="images\staffnotification.png" alt="Submit Command Example 2" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                 <div class="carousel-dots" aria-hidden="true"></div>
+                             </div>
+                        </div>
+                    </div>
+
+                     
+                   <div class="command-card" id="cmd-3" data-role="general" data-tags="general progress">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">3</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Series Progress</h2>
+                               <span class="tag role-tag role-tag-general">General</span>
+                               <span class="tag tag-progress">Progress</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: View the current progress status for all active chapters in a series channel.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Progress command usage">Copy</button>
+                                   <div class="command-usage">/series_progress channel: <span class="param">#series-channel</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Progress command example">Copy</button>
+                                   <div class="command-usage">/series_progress channel: #cool-manhwa</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                    <li>Shows a visual progress bar (<code>██</code> <strong>completed</strong>, <code>▄▄</code> <strong>ongoing</strong>, <code>░░</code> <strong>pending</strong>) for each avilable chapter.</li>
+                                    <li>Indicates the percentage complete and the next step needed (e.g., → <strong>PR</strong>).</li>
+                                    <li>If a step is <code>ongoing</code>, it shows who claimed it and since when.</li>
+                                    <li>Includes <code>Claim</code> buttons for the next available step on each chapter shown.</li>
+                                    <li>Use this command to find available work in a series and claim it to start working on it.</li>
+                                    <li>If there are many avilable chapters, the report will be paginated with <strong>Next</strong>/<strong>Previous</strong> buttons.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Series Progress Screenshots">
+                                        <img src="images\seriesprogress.png" alt="Series Progress Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                     <div class="command-card" id="cmd-4" data-role="user" data-tags="user progress">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">4</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Claim</h2>
+                               <span class="tag role-tag role-tag-user">User</span>
+                               <span class="tag tag-progress">Progress</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Claim an available chapter step to start working on it.</p>
+                               <p class="notes-title">Usage:</p>
+                               <ul class="notes-list">
+                                <li>Click the corresponding button (e.g., "TL 05", "ED 12") on messages from triggered by <code>/submit</code>, <code>/series_progress</code>, or <code>/chapter_progress</code> commands.</li>
+                               </ul>
+                                
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li>Claiming reserves the chapter/step for you, preventing others from claiming it.</li>
+                                   <li>The step status changes to "ongoing" in progress reports.</li>
+                                   <li>You generally cannot claim a new chapter/step if you already have one ongoing (unless you have an exempt role).</li>
+                                   <li>Users with a <strong>Restricted</strong> role cannot claim chapters.</li>
+                                   <li>Once clicked, the button becomes disabled.</li>
+                                   <li>After claiming, proceed with your work and use <code>/submit</code> when finished.</li>
+                               </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Claim Interaction Screenshots">
+                                        <img src="images\claimchapter.png" alt="Claim Interaction Example 1 - Button on Progress Report" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-5" data-role="admin" data-tags="admin progress points">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">5</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Undo</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                                <span class="tag tag-progress">Progress</span>
+                                <span class="tag tag-points">Points</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Revert a progress step and/or submitted work entry for one or more chapters, optionally removing points.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Undo command usage">Copy</button>
+                                   <div class="command-usage">/undo channel: <span class="param">#channel</span> chapters: <span class="param">number_or_range</span> job: <span class="param">Job_Name</span> target: <span class="param">progress/work/both</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Undo command example">Copy</button>
+                                   <div class="command-usage">/undo channel: #cool-manhwa chapters: 15 job: Translation target: Both</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Use to correct mistakes in submissions or progress tracking.</li>
+                                   <li><code>job</code> Select the job you want to undo: <code>Raw</code>, <code>Translation</code>, <code>Proofreading</code>, <code>Cleaning</code>, <code>Typesetting</code>, <code>Quality Check</code>, <code>Edit</code> (combines <strong>Cleaning</strong> & <strong>Typesetting</strong>), <code>All</code> (for <strong>All Steps</strong>).</li>
+                                   <li><code>target</code>: <code>progress</code> removes only the <strong>claim</strong>/<strong>completion</strong> status; <code>work</code> removes the <strong>submission record</strong> and <strong>points</strong>; <code>both</code> does both.</li>
+                                   <li>This makes the step available again for <strong>claiming</strong>/<strong>submission</strong>.</li>
+                               </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Undo Command Screenshots">
+                                        <img src="images\undo.png" alt="Undo Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                 <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                   
+                   <div class="command-card" id="cmd-6" data-role="admin" data-tags="admin progress">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">6</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Category Overview</h2>
+                                <span class="tag role-tag role-tag-admin">Admin</span>
+                                 <span class="tag tag-progress">Progress</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Display a paginated progress overview for all active series within the current channel's category.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Category Overview command usage">Copy</button>
+                                   <div class="command-usage">/category_overview</div>
+                               </div>
+                               
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                    <li><strong>Admin Only.</strong></li>
+                                    <li>Provides a quick way to check the status of multiple related series.</li>
+                                    <li>Shows progress reports similar to <code>/series_progress</code> for each active series in the <strong>category</strong>, navigable with <code>Previous</code>/<code>Next</code> buttons.</li>
+                               </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Category Overview Screenshots">
+                                        <img src="images\categoryprogress.png" alt="Category Overview Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                   
+                   <div class="command-card" id="cmd-7" data-role="admin" data-tags="admin progress">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">7</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Server Overview</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                                <span class="tag tag-progress">Progress</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Display a paginated progress overview for all active series across the entire server.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Server Overview command usage">Copy</button>
+                                   <div class="command-usage">/server_overview</div>
+                               </div>
+                                
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                    <li><strong>Admin Only.</strong></li>
+                                    <li>Provides the broadest view of ongoing work across the server.</li>
+                                    <li>Skips predefined categories (e.g., staff areas, completed series).</li>
+                                    <li>Uses the same paginated format as <code>/category_overview</code>.</li>
+                               </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Server Overview Screenshots">
+                                        <img src="images\serverprogress.png" alt="Server Overview Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                 <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                   <div class="command-card" id="cmd-8" data-role="general" data-tags="general progress">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">8</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Chapter Progress</h2>
+                               <span class="tag role-tag role-tag-general">General</span>
+                               <span class="tag tag-progress">Progress</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Show detailed step-by-step progress for a single chapter in a series channel.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Chapter Progress command usage">Copy</button>
+                                   <div class="command-usage">/chapter_progress chapter: <span class="param">number</span> channel: <span class="param">#series-channel</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Chapter Progress command example">Copy</button>
+                                   <div class="command-usage">/chapter_progress chapter: 15 channel: #cool-manhwa</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li>Shows who <strong>completed</strong>/<strong>claimed</strong> each step (<strong>Raw</strong>, <strong>Translation</strong>, <strong>Proofreading</strong>, <strong>Cleaning</strong>, <strong>Typesetting</strong>, <strong>Quality Checking</strong>) and when.</li>
+                                   <li>Indicates if a step is <code>ongoing</code> or <code>pending</code>.</li>
+                                   <li>Includes a <code>Claim</code> button if the next step is available for claiming.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Chapter Progress Screenshots">
+                                        <img src="images\chapterprogress.png" alt="Chapter Progress Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                   
+                   <div class="command-card" id="cmd-9" data-role="admin manager" data-tags="admin manager progress misc drive"> 
+                    <div class="command-header" role="button" aria-expanded="true">
+                       <div class="command-number">9</div>
+                        <div class="command-title-wrapper">
+                           <h2 class="command-title">Staff Request</h2>
+                           <span class="tag role-tag role-tag-admin">Admin</span>
+                           <span class="tag tag-progress">Progress</span>
+                           <span class="tag tag-misc">Misc</span>
+                       </div>
+                        <span class="toggle-button" aria-hidden="true">▼</span>
+                   </div>
+                   <div class="command-content">
+                       <div class="command-details">
+                           <p class="purpose">Purpose: Request substitute or new staff for one or more roles on a series, optionally automating access.</p>
+                           <div class="command-usage-container">
+                               <button class="copy-btn" aria-label="Copy Staff Request command usage">Copy</button>
+                               <div class="command-usage">/staff_request role: <span class="param">RoleName</span> <span class="optional">[channel: #series-channel]</span> <span class="optional">[chapters_count: number]</span> <span class="optional">[number_of_candidates: number]</span> <span class="optional">[role_2: RoleName]</span> <span class="optional">[role_3: RoleName]</span> <span class="optional">[role_4: RoleName]</span> <span class="optional">[role_5: RoleName]</span> <span class="optional">[note: text]</span> <span class="optional">[permanent: Permanent/Temporary]</span> <span class="optional">[deadline: date/time_string]</span> <span class="optional">[urgency: Low/Medium/High/Urgent]</span> <span class="optional">[auto_access: Enabled/Disabled]</span> <span class="optional">[min_skill: A Tier/B Tier/C Tier]</span></div>
+                           </div>
+                           <p class="example-title">Example:</p>
+                           <div class="command-usage-container">
+                               <button class="copy-btn" aria-label="Copy Staff Request command example">Copy</button>
+                               <div class="command-usage">/staff_request role: Korean translator channel: #cool-manhwa chapters_count: 3 role_2: Cleaner role_3: Typesetter permanent: Temporary urgency: High auto_access: Enabled min_skill: B Tier number_of_candidates: 2 deadline: in 3 hours note: Focus on ch 1-3</div>
+                           </div>
+                           <p class="notes-title">Important Notes:</p>
+                           <ul class="notes-list">
+                               <li>Used by <strong>Admins</strong> and <strong>Managers</strong> to find staff for unavailable roles or new series needs.</li>
+                               <li>You can request up to <strong>5 different roles</strong> simultaneously (<code>role</code>, <code>role_2</code>...<code>role_5</code>).</li>
+                               <li>Creates a request message in a dedicated channel (e.g., <code>#staff-requests</code>) mentioning the required role(s).</li>
+                               <li>The message embed displays series info, <strong>points per chapter</strong> (fetched automatically), required roles, <strong>chapter count</strong> (default 1), <strong>deadline</strong>/<strong>urgency</strong>, and optional manager <strong>note</strong>.</li>
+                               <li><code>channel:</code> Defaults to the channel where the command is run if not specified.</li>
+                               <li><code>permanent:</code> Indicates if the need is long-term (Permanent) or short-term (Temporary, default).</li>
+                               <li><code>deadline:</code> Accepts flexible date/time strings (e.g., "tomorrow 5pm", "in 2 days").</li>
+                               <li><code>urgency:</code> Sets priority (Low, Medium, High, Urgent). Default is Low.</li>
+                               <li><strong>Staff Interaction:</strong> Users with the required Discord role(s) can click buttons on the request message to show/withdraw interest. The embed updates to show interested candidates per role.</li>
+                               <li><code>auto_access: Enabled</code>: Attempts to <strong>automatically grant channel and Google Drive access</strong> to interested users.
+                                   <ul>
+                                       <li>Requires: The series must have a valid Google Drive link registered via <code>/series details</code>, the bot must have 'Editor' permissions on that folder, and the interested user must have their email registered with the bot.</li>
+                                       <li>Grants access only if the user has the base Discord role (e.g., Proofreader).</li>
+                                       <li><code>min_skill:</code> If set (A/B/C Tier), only users with that skill tier role (or higher) will get auto-access.</li>
+                                       <li><code>number_of_candidates:</code> (Default 1) Limits how many users <strong>per role</strong> are granted auto-access. Others can still show interest but won't get automatic access.</li>
+                                       <li>Users are notified in the series channel upon successful access grant.</li>
+                                   </ul>
+                               </li>
+                               <li>The command invoker is notified briefly when someone shows/withdraws interest.</li>
+                               <li><strong>Dependencies:</strong> Requires series points and Google Drive links to be configured using <code>/series details</code> for full functionality (points display, auto-access). Requires users to have registered emails for Drive auto-access.</li>
+                           </ul>
+                       </div>
+                        <div class="image-area">
+                            <div class="command-image-wrapper">
+                                <div class="carousel-container" aria-label="Staff Request Command Screenshots">
+                                    
+                                    <img src="images\staffrequestcommand.png" alt="Staff Request Command Example - Embed Creation" draggable="false" data-fullscreenable="true">
+                                     <img src="images\staff_request.png" alt="Staff Request Command Example - Request Message with Buttons and Candidates" draggable="false" data-fullscreenable="true">
+                                </div>
+                            </div>
+                            <div class="carousel-dots" aria-hidden="true"></div>
+                       </div>
+                   </div>
+               </div>
+
+                    
+                    <div class="command-card" id="cmd-10" data-role="admin" data-tags="admin misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">10</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Mention</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: <strong>Admin</strong> Get a list of mentions for members matching specific role criteria.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Mention command usage">Copy</button>
+                                   <div class="command-usage">/mention role1: <span class="param">@role</span> <span class="optional">[role2: @role]</span> ... <span class="optional">[exclude1: @role]</span> ... hiatus: <span class="param">True/False</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Mention command example">Copy</button>
+                                   <div class="command-usage">/mention role1: @Translator role2: @Cool-manhwa-role exclude1: @C Tier hiatus: No</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                    <li><strong>Admin Only.</strong></li>
+                                    <li>Useful for quickly gathering mentions to paste into announcements or messages.</li>
+                                    <li>Specify up to 5 roles users <strong>must</strong> have (<code>role1</code> to <code>role5</code>).</li>
+                                    <li>Specify up to 3 roles users <strong>must not</strong> have (<code>exclude1</code> to <code>exclude3</code>).</li>
+                                    <li><code>hiatus: No</code> automatically excludes users with the <code>Hiatus</code> role. Set to <code>Yes</code> to include them.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Mention Command Screenshots">
+                                        <img src="images\mention.png" alt="Mention Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-11" data-role="general" data-tags="general misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">11</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Hyphen</h2>
+                               <span class="tag role-tag role-tag-general">General</span>
+                                <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Suggest correct hyphenation points for an English word.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Hyphenate command usage">Copy</button>
+                                   <div class="command-usage">/hyphen word: <span class="param">word_to_hyphenate</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Hyphenate command example">Copy</button>
+                                   <div class="command-usage">/hyphen word: typesetting</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li>Useful for Typesetters or anyone needing to break words correctly.</li>
+                                   <li>Returns the word with hyphens inserted at valid break points (e.g., <code>type-set-ting</code>).</li>
+                                   <li>Only works for English words.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Hyphenate Command Screenshots">
+                                        <img src="images\hyphen.png" alt="Hyphenate Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-12" data-role="general" data-tags="general misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">12</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">ID</h2>
+                               <span class="tag role-tag role-tag-general">General</span>
+                                <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Get your own Discord User ID, or the ID of a specific user or role.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy ID command usage">Copy</button>
+                                   <div class="command-usage">/id <span class="optional">[user: @user]</span> <span class="optional">[role: @role]</span></div>
+                               </div>
+                               <p class="example-title">Examples:</p>
+                               <div class="command-usage-container">
+                                   <div class="command-usage">/id --> Shows your ID<br>/id user: @SomeUser --> Shows SomeUser's ID<br>/id role: @Translator --> Shows Translator role's ID</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li>Useful if you need an ID for configuration or mentioning in specific contexts.</li>
+                                   <li>Provide either a <code>user</code> or a <code>role</code>, not both. If neither is provided, it shows your own ID.</li>
+                                </ul>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-13" data-role="admin" data-tags="admin misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">13</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Show Email</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                                <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Allows <strong>Admins</strong> to quickly view the registered email address of a user.</p>
+                               <div class="command-usage-container">
+                                    <div class="command-usage">Right-click on a user -> Apps -> Show Email</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Shows the email the user provided via <code>/register</code>.</li>
+                                   <li>Useful for checking details for communication or access management (e.g., <strong>Google Drive</strong>).</li>
+                                   <li>The result is shown ephemerally (only you can see it).</li>
+                                </ul>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-14" data-role="admin" data-tags="admin misc points">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">14</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Show Payment Method</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag tag-misc">Misc</span>
+                               <span class="tag tag-points">Points</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: <strong>Admin</strong> Quickly view the registered payment method of a user.</p>
+                               <div class="command-usage-container">
+                                    <div class="command-usage">Right-click on a user -> Apps -> Show Payment Method</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Shows the payment details the user provided via <code>/register</code>.</li>
+                                   <li>Useful for processing payments.</li>
+                                   <li>The result is shown ephemerally (only you can see it).</li>
+                                </ul>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-15" data-role="admin" data-tags="admin misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">15</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Announce</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: <strong>Admin</strong> Send official announcements to specific channels, optionally mentioning users/roles and pinning.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Announce command usage">Copy</button>
+                                   <div class="command-usage">/announce <span class="optional">[channel: #channel]</span> <span class="optional">[message: text]</span> <span class="optional">[file: attachment]</span> <span class="optional">[pin: Pin/Don't Pin]</span> <span class="optional">[user_mention1..5: @user]</span> <span class="optional">[role_mention1..5: @role]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Announce command example">Copy</button>
+                                   <div class="command-usage">/announce message: Team meeting scheduled for Friday at 5 PM UTC. Please react if you can attend. role_mention1: @PROJECT MANAGER</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>If <code>channel</code> is omitted, sends to the channel where the command is used.</li>
+                                   <li>Provide content via <code>message</code> or <code>file</code>. If neither is provided, a pop-up modal will appear for typing the message.</li>
+                                   <li><code>pin</code>: Choose <code>Pin</code> to pin the message in the target channel.</li>
+                                   <li>Mentions are added at the end of the message.</li>
+                                   <li>Long messages are automatically split and send as several messages.</li>
+                                   <li>The bot logs announcement usage in a specific log channel.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Announce Command Screenshots">
+                                        <img src="images\announcement.png" alt="Announce Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-16" data-role="admin" data-tags="admin misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">16</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Grant Access</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                                <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: <strong>Admin</strong> Grant a user access to a specific series channel and its associated Google Drive folder.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Grant Access command usage">Copy</button>
+                                   <div class="command-usage">/grant_access channel: <span class="param">#series-channel</span> user: <span class="param">@user</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Grant Access command example">Copy</button>
+                                   <div class="command-usage">/grant_access channel: #cool-manhwa user: @NewEditor</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Grants Discord permissions (view, send messages) for the specified <code>channel</code>.</li>
+                                   <li>Shares the <strong>Google Drive</strong> folder linked to the series (via <code>/series details</code>) with the user's registered email (from <code>/register</code>).</li>
+                                   <li>Requires the bot to have appropriate permissions on <strong>Google Drive</strong>.</li>
+                                   <li>Used for onboarding staff to a series or granting substitute access manually.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Grant Access Command Screenshots">
+                                        <img src="images\grantaccess.png" alt="Grant Access Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-17" data-role="admin" data-tags="admin misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">17</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Revoke Access</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: <strong>Admin</strong> Remove a user's access to a specific series channel and its associated Google Drive folder.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Revoke Access command usage">Copy</button>
+                                   <div class="command-usage">/revoke_access channel: <span class="param">#series-channel</span> user: <span class="param">@user</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Revoke Access command example">Copy</button>
+                                   <div class="command-usage">/revoke_access channel: #cool-manhwa user: @OldEditor</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Removes Discord permissions override for the specified <code>channel</code>.</li>
+                                   <li>Removes the user (via registered email) from the shared <strong>Google Drive</strong> folder linked to the series.</li>
+                                   <li>Requires the bot to have appropriate permissions on <strong>Google Drive</strong>.</li>
+                                   <li>Can be used when staff leave a series or the server.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Revoke Access Command Screenshots">
+                                        <img src="images\revokeaccess.png" alt="Revoke Access Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-18" data-role="admin" data-tags="admin points misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">18</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Warn</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag tag-points">Points</span>
+                               <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Allows <strong>Admins</strong> to issue a formal warning to a user, optionally deducting points and/or restricting their ability to work.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Warn command usage">Copy</button>
+                                   <div class="command-usage">/warn target: <span class="param">@user</span> reason: <span class="param">reason_text</span> <span class="optional">[points: number]</span> <span class="optional">[restrict: True/False]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Warn command example">Copy</button>
+                                   <div class="command-usage">/warn target: @LazyUser reason: Missed deadline for Proofreading Chapter 10 of #cool-manhwa without notice. points: 10 restrict: True</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Logs the warning with the reason and timestamp.</li>
+                                   <li><code>points</code>: If specified, deducts this amount from the user's balance.</li>
+                                   <li><code>restrict: True</code>: Assigns a <strong>Restrict Work</strong> role to the user, preventing them from claiming new tasks via buttons.</li>
+                                   <li>An announcement is sent to a specific staff channel, and the user is typically DMed.</li>
+                                   <li>Accumulating multiple active warnings (e.g., 3+) puts the user at risk of being fired.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Warn Command Screenshots">
+                                        <img src="images\warncommand.png" alt="Warn Command Example 1" draggable="false" data-fullscreenable="true">
+                                        <img src="images\warnannouncement.png" alt="Warn Command Example 2" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-19" data-role="general" data-tags="general admin user misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">19</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Standing</h2>
+                               <span class="tag role-tag role-tag-general">General</span>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag role-tag role-tag-user">User</span>
+                               <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: View the active warnings for yourself or another user <strong>(admin only)</strong>.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Standing command usage">Copy</button>
+                                   <div class="command-usage">/standing <span class="optional">[target: @user]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Standing command example">Copy</button>
+                                   <div class="command-usage">/standing</div>
+                               </div>
+                               <div class="command-usage-container">
+                                <button class="copy-btn" aria-label="Copy Standing command example">Copy</button>
+                                <div class="command-usage">/standing target: @SomeUser</div>
+                            </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li>Shows a list of active warnings, including reason, points deducted, restriction status, and issue date.</li>
+                                   <li>Highlights if the user has reached a critical number of warnings (e.g., 3+).</li>
+                                   <li>Admins viewing another user's standing will see buttons to:
+                                       <ul>
+                                           <li>Remove individual warnings.</li>
+                                           <li>Clear all active warnings.</li>
+                                           <li>Kick the user (with confirmation).</li>
+                                       </ul>
+                                   </li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Standing Command Screenshots">
+                                        <img src="images\standingembed.png" alt="Standing Command Example 1 - User View" draggable="false" data-fullscreenable="true">
+                                         <img src="images\standingcommand.png" alt="Standing Command Example 2 - Admin View with Buttons" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-20" data-role="admin" data-tags="admin progress points misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">20</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Report</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag tag-progress">Progress</span>
+                               <span class="tag tag-points">Points</span>
+                               <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: <strong>Admin</strong> Generate a summary report of team activity and financials for the current month.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Report command usage">Copy</button>
+                                   <div class="command-usage">/report</div>
+                               </div>
+                               
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Provides key metrics like:
+                                       <ul>
+                                           <li>Total Chapters Completed.</li>
+                                           <li>Total Chapters Cost.</li>
+                                           <li>Average Cost per Chapter</li>
+                                           <li>Active Staff Count</li>
+                                           <li>Top Staff (by points earned and by number of submissions)</li>
+                                           <li>Total points from manual Rewards/Punishments</li>
+                                       </ul>
+                                   </li>
+                                   <li>Excludes certain configured channels/series from calculations.</li>
+                                </ul>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-21" data-role="general" data-tags="general admin user points">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">21</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Leaderboard</h2>
+                               <span class="tag role-tag role-tag-general">General</span>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag role-tag role-tag-user">User</span>
+                               <span class="tag tag-points">Points</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: View the server's points leaderboard.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Leaderboard command usage">Copy</button>
+                                   <div class="command-usage">/leaderboard <span class="optional">[users_count: number]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Leaderboard command example">Copy</button>
+                                   <div class="command-usage">/leaderboard users_count: 10</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li>Shows the ranking of users based on their current points balance.</li>
+                                   <li>Admins see the top list (up to <code>users_count</code>, default 10).</li>
+                                   <li>Regular users only see their own rank and total points if they are on the leaderboard.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Leaderboard Command Screenshots">
+                                        <img src="images\leaderboard.png" alt="Leaderboard Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-22" data-role="admin" data-tags="admin points">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">22</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Reward</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                                <span class="tag tag-points">Points</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Allows <strong>Admins</strong> to manually grant points to a user for reasons outside normal work submissions.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Reward command usage">Copy</button>
+                                   <div class="command-usage">/reward member: <span class="param">@user</span> points: <span class="param">number</span> <span class="optional">[reason: reason_text]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Reward command example">Copy</button>
+                                   <div class="command-usage">/reward member: @HelpfulUser points: 25 reason: Helping onboard new members</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Used for bonuses, contest prizes, compensation, etc.</li>
+                                   <li>Adds points to the user's balance and logs the transaction in their points history.</li>
+                                   <li>Sends an announcement about the reward.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Reward Command Screenshots">
+                                        <img src="images\rewardannouncement.png" alt="Reward Command Example 1" draggable="false" data-fullscreenable="true">
+                                        <img src="images\reward.png" alt="Reward Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                     <div class="command-card" id="cmd-23" data-role="admin" data-tags="admin points">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">23</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Punish</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                                <span class="tag tag-points">Points</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Allows <strong>Admins</strong> to Manually deduct points from a user.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Punish command usage">Copy</button>
+                                   <div class="command-usage">/punish member: <span class="param">@user</span> points: <span class="param">number</span> <span class="optional">[reason: reason_text]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Punish command example">Copy</button>
+                                   <div class="command-usage">/punish member: @RuleBreaker points: 50 reason: Violating server rules</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Use alongside or instead of <code>/warn</code> for point deductions related to misconduct or major errors.</li>
+                                   <li>Subtracts points from the user's balance and logs the transaction.</li>
+                                   <li>Sends an announcement about the punishment.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Punish Command Screenshots">
+                                        <img src="images\punishannouncement.png" alt="Punish Command Example 1" draggable="false" data-fullscreenable="true">
+                                        <img src="images\punish.png" alt="Punish Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-24" data-role="admin" data-tags="admin points">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">24</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Transfer</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                                <span class="tag tag-points">Points</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Allows <strong>Admins</strong> to Transfer points directly from one user's balance to another.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Transfer command usage">Copy</button>
+                                   <div class="command-usage">/transfer from_member: <span class="param">@user</span> to_member: <span class="param">@user</span> points: <span class="param">number</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Transfer command example">Copy</button>
+                                   <div class="command-usage">/transfer from_member: @UserA to_member: @UserB points: 15.5</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Used for correcting point allocations or specific agreed-upon transfers.</li>
+                                   <li>Moves the exact <code>points</code> value from <code>from_member</code> to <code>to_member</code>. Does not create points.</li>
+                                   <li>Ensure <code>from_member</code> has sufficient points.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Transfer Command Screenshots">
+                                        <img src="images\transfer.png" alt="Transfer Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                   
+                    <div class="command-card" id="cmd-25" data-role="general" data-tags="general admin user points progress">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">25</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Stats</h2>
+                               <span class="tag role-tag role-tag-general">General</span>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag role-tag role-tag-user">User</span>
+                               <span class="tag tag-points">Points</span>
+                               <span class="tag tag-progress">Progress</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Check your own or another user's current points balance and recent work summary.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Stats command usage">Copy</button>
+                                   <div class="command-usage">/stats <span class="optional">member: @user]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Balance command example">Copy</button>
+                                   <div class="command-usage">/stats</div>
+                               </div>
+                               <div class="command-usage-container">
+                                <button class="copy-btn" aria-label="Copy Balance command example">Copy</button>
+                                <div class="command-usage">/stats member: @SomeUser</div>
+                            </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                    <li>Shows:
+                                    <ul>
+                                        <li>Total Earnings (Points)</li>
+                                        <li>Total Chapters Submitted Count</li>
+                                        <li>Last Chapter Submitted (<strong>Name</strong> & <strong>Number</strong>, <strong>Last Job Done</strong>, <strong>Points Earned from Last Job</strong>, <strong>Date of Last Job</strong>).</li>
+                                        </li>
+                                    </ul></li>
+                                    <li>Regular users can only view their own stats.</li>
+                                    <li>Admins can view anyone's stats by specifying the <code>member</code>.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Balance Command Screenshots">
+                                        <img src="images\stats.png" alt="Balance Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-26" data-role="general" data-tags="general admin user points">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">26</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Points History</h2>
+                               <span class="tag role-tag role-tag-general">General</span>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag role-tag role-tag-user">User</span>
+                               <span class="tag tag-points">Points</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: View a detailed log of point adjustments for yourself or another user.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Points History command usage">Copy</button>
+                                   <div class="command-usage">/points_history <span class="optional">[member: @user]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Points History command example">Copy</button>
+                                   <div class="command-usage">/points_history</div>
+                               </div>
+                               <div class="command-usage-container">
+                                <button class="copy-btn" aria-label="Copy Points History command example">Copy</button>
+                                <div class="command-usage">/points_history member: @SomeUser</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li>Shows each point change, including:
+                                   <ul>
+                                       <li>Positive or negative point adjustments.</li>
+                                       <li>The resulting total balance at that time.</li>
+                                       <li>The admin who made the change.</li>
+                                       <li>The reason for the change.</li>
+                                       <li>The date and time when it occurred.</li>
+                                   </ul></li>
+                                   <li>Includes points from <code>/reward</code>, <code>/punish</code>, and point deductions from <code>/warn</code>. May include other adjustments.</li>
+                                   <li>Regular users can only view their own history.</li>
+                                   <li>Admins can view anyone's history.</li>
+                                   <li>Uses pagination if history is long.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Points History Command Screenshots">
+                                        <img src="images\points history.png" alt="Points History Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-27" data-role="general admin user" data-tags="general admin user progress points"> 
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">27</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">User Chapters</h2>
+                               <span class="tag role-tag role-tag-general">General</span>
+                                <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag role-tag role-tag-user">User</span>
+                                <span class="tag tag-progress">Progress</span>
+                                <span class="tag tag-points">Points</span> 
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: View a list of chapters submitted by yourself or another user, with options to filter by series or job type.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy User Chapters command usage">Copy</button>
+                                   <div class="command-usage">/user_chapters <span class="optional">[member: <span class="param">@user</span>]</span> <span class="optional">[series: <span class="param">#series-channel</span>]</span> <span class="optional">[job: <span class="param">Job_Name</span>]</span></div>
+                               </div>
+                               <p class="example-title">Examples:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy User Chapters command example">Copy</button>
+                                   <div class="command-usage">/user_chapters</div> 
+                               </div>
+                               <div class="command-usage-container">
+                                <button class="copy-btn" aria-label="Copy User Chapters command example">Copy</button>
+                                <div class="command-usage">/user_chapters member: <code>@SomeUser</code></div> 
+                               </div>
+                               <div class="command-usage-container">
+                                <button class="copy-btn" aria-label="Copy User Chapters command example">Copy</button>
+                                <div class="command-usage">/user_chapters series: <code>#cool-manhwa</code> job: <code>Editing</code></div> 
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li>Displays a list of submitted chapters for the specified user (defaults to yourself).</li>
+                                   <li>Regular users can only view their <strong>own</strong> submissions.</li>
+                                   <li><strong>Admins</strong> can view submissions for any <code>member</code>.</li>
+                                   <li>Optional Filters:
+                                       <ul>
+                                            <li><code>series</code>: Filters the list to show only submissions for the specified series channel.</li>
+                                            <li><code>job</code>: Filters the list to show only submissions matching the selected job type (<code>Translation</code>, <code>Proofreading</code>, <code>Editing</code>, <code>Quality Checking</code>).</li>
+                                       </ul>
+                                   </li>
+                                   <li>The output shows each chapter name (e.g., <code>#channel-name chapter_number</code>) and lists the final job(s) performed for that chapter along with the relative submission date (e.g., <code>Editing - an hour ago</code>).</li>
+                                   <li>Chapters are sorted by the earliest submission date associated with them.</li>
+                                   <li>If the list contains more than 15 chapters, it uses pagination with <strong>Previous</strong>/<strong>Next</strong> buttons.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="User Chapters Command Screenshots">
+                                        <img src="images\userchapters.png" alt="User Chapters Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                     <div class="command-card" id="cmd-28" data-role="general" data-tags="general progress misc points admin">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">28</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Series Info</h2>
+                               <span class="tag role-tag role-tag-general">General</span>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag tag-progress">Progress</span>
+                               <span class="tag tag-misc">Misc</span>
+                               <span class="tag tag-points">Points</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Display assigned staff (main & substitutes) and pay rates for a specific series.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Info command usage">Copy</button>
+                                   <div class="command-usage">/series_info <span class="optional">[series_channel: #channel]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Info command example">Copy</button>
+                                   <div class="command-usage">/series_info series_channel: #cool-manhwa</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li>If <code>series_channel</code> is omitted, shows info for the current channel.</li>
+                                   <li>Displays mentions for assigned <strong>Translator</strong>, <strong>Proofreader</strong>, <strong>Cleaner</strong>, <strong>Typesetter</strong>, <strong>Quality Checker</strong> (and their substitutes).</li>
+                                   <li>Shows the points awarded per chapter for <strong>Translation</strong>, <strong>Proofreading</strong>, <strong>Editing</strong>, and <strong>Quality Checking</strong> for this series.</li>
+                                   <li>Indicates if the series is marked as a <strong>Speedrun</strong>.</li>
+                                   <li>Admins also see the calculated <strong>Total Cost</strong> per chapter for the series.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Series Info Command Screenshots">
+                                        <img src="images\seriesinfo.png" alt="Series Info Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                   
+                    <div class="command-card" id="cmd-29" data-role="admin" data-tags="admin points">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">29</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Due</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag tag-points">Points</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Allows <strong>Admins</strong> to see the total accumulated points across all users in the server.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Due command usage">Copy</button>
+                                   <div class="command-usage">/due</div>
+                               </div>
+                               
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong></li>
+                                   <li>Calculates the sum of current points balances for every registered user.</li>
+                                   <li>Useful for financial planning related to payouts.</li>
+                                </ul>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-30" data-role="admin" data-tags="admin points misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">30</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Series Rates</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag tag-points">Points</span>
+                               <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Allows <strong>Admins</strong> to set or update the points awarded per job for a specific series.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Rates command usage">Copy</button>
+                                   <div class="command-usage">/series rates channel: <span class="param">#channel</span> <span class="optional">[translating_points: num]</span> <span class="optional">[proofreading_points: num]</span> <span class="optional">[editing_points: num]</span> <span class="optional">[qc_points: num]</span> <span class="optional">[speed_run: Yes/No]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Rates command example">Copy</button>
+                                   <div class="command-usage">/series rates channel: #new-manhwa translating_points: 6 proofreading_points: 2 editing_points: 5 qc_points: 1.5 speed_run: No</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong> Part of the <code>/series</code> command group.</li>
+                                   <li>Sets the base points earned when a user <code>/submit</code>s work for this series.</li>
+                                   <li>If updating, only provided values are changed.
+                                    <li>If adding a new series, the bot will use the following default rates:
+                                   <ul>
+                                       <li>Translation: <code>$1.5</code></li>
+                                       <li>Proofreading: <code>$0.75</code></li>
+                                       <li>Editing: <code>$1.5</code></li>
+                                       <li>Quality Checking: <code>$0.5</code></li>
+                                   </ul></li>
+                                   <li><code>speed_run</code>: Marks the series status as Speed Run or not. The default is <strong>Not</strong> Speed Run.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Series Rates Command Screenshots">
+                                        <img src="images\seriesrates.png" alt="Series Rates Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-31" data-role="admin" data-tags="admin progress misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">31</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Series Staff</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                               <span class="tag tag-progress">Progress</span>
+                                <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Allows <strong>Admins</strong> to assign or update the primary and substitute staff members for each role on a series.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Staff command usage">Copy</button>
+                                   <div class="command-usage">/series staff channel: <span class="param">#channel</span> <span class="optional">[translator: @user]</span> <span class="optional">[proofreader: @user]</span> <span class="optional">[editor: @user]</span> <span class="optional">[quality_checker: @user]</span> <span class="optional">[sub_translator: @user]</span> <span class="optional">[sub_proofreader: @user]</span> <span class="optional">[sub_editor: @user]</span> <span class="optional">[sub_quality_checker: @user]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Staff command example">Copy</button>
+                                   <div class="command-usage">/series staff channel: #cool-manhwa translator: @UserT editor: @UserE sub_editor: @UserSubE</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                    <li><strong>Admin Only.</strong> Part of the <code>/series</code> command group.</li>
+                                    <li>Determines who gets notified by <code>/submit</code> for the next step.</li>
+                                    <li>If updating, only provided roles are changed. When adding a new series staff record, Translator, Proofreader, and Editor are usually required.</li>
+                                    <li>Substitutes are used if the primary staff member has the <strong>Hiatus</strong> role.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Series Staff Command Screenshots">
+                                        <img src="images\seriesstaff.png" alt="Series Staff Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                   
+                    <div class="command-card" id="cmd-32" data-role="admin" data-tags="admin misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">32</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Series Details</h2>
+                                <span class="tag role-tag role-tag-admin">Admin</span>
+                                 <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Allows <strong>Admins</strong> to add or update general information about a series, including essential links.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Details command usage">Copy</button>
+                                   <div class="command-usage">/series details channel: <span class="param">#channel</span> <span class="optional">[roman_name: text]</span> <span class="optional">[original_name: text]</span> <span class="optional">[release_day: text]</span> <span class="optional">[release_time: text]</span> <span class="optional">[original_publisher_link: URL]</span> <span class="optional">[scanlation_link: URL]</span> <span class="optional">[google_drive_link: URL]</span> <span class="optional">[discord_role: @role]</span> <span class="optional">[extra_info: text]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Details command example">Copy</button>
+                                   <div class="command-usage">/series details channel: #new-manhwa roman_name: "New Cool Manga" original_publisher_link: https://publisher.com/manhwa google_drive_link: https://gdrive/link/to/series/folder</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                    <li><strong>Admin Only.</strong> Part of the <code>/series</code> command group.</li>
+                                    <li>Stores general metadata about the series.</li>
+                                    <li>The <code>google_drive_link</code> is crucial for <code>/grant_access</code>, <code>/revoke_access</code>, and the <code>/staff_request</code> auto-access features. It's required when adding a new series.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Series Details Command Screenshots">
+                                        <img src="images\seriesdetails.png" alt="Series Details Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+
+                    
+                    <div class="command-card" id="cmd-33" data-role="admin" data-tags="admin progress misc">
+                        <div class="command-header" role="button" aria-expanded="true">
+                           <div class="command-number">33</div>
+                            <div class="command-title-wrapper">
+                               <h2 class="command-title">Series Deadlines</h2>
+                               <span class="tag role-tag role-tag-admin">Admin</span>
+                                <span class="tag tag-progress">Progress</span>
+                                 <span class="tag tag-misc">Misc</span>
+                           </div>
+                            <span class="toggle-button" aria-hidden="true">▼</span>
+                       </div>
+                       <div class="command-content">
+                           <div class="command-details">
+                               <p class="purpose">Purpose: Allows <strong>Admins</strong> to set or update the expected completion time (deadline) for each job step on a series.</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Deadlines command usage">Copy</button>
+                                   <div class="command-usage">/series deadlines channel: <span class="param">#channel</span> <span class="optional">[translation: time]</span> <span class="optional">[proofreading: time]</span> <span class="optional">[editing: time]</span> <span class="optional">[quality_checking: time]</span></div>
+                               </div>
+                               <p class="example-title">Example:</p>
+                               <div class="command-usage-container">
+                                   <button class="copy-btn" aria-label="Copy Series Deadlines command example">Copy</button>
+                                   <div class="command-usage">/series deadlines channel: #cool-manhwa translation: 2h proofreading: 45m editing: 1h30m quality_checking: 30m</div>
+                               </div>
+                               <p class="notes-title">Important Notes:</p>
+                               <ul class="notes-list">
+                                   <li><strong>Admin Only.</strong> Part of the <code>/series</code> command group.</li>
+                                   <li>Specify time using <code>h</code> for hours and <code>m</code> for minutes (e.g., <code>2h</code>, <code>90m</code>). Defaults may apply if not set:
+                                   <ul>
+                                       <li><strong>Translation</strong>: <code>45 Minutes</code></li>
+                                       <li><strong>Proofreading</strong>: <code>20 Minutes</code></li>
+                                       <li><strong>Editing</strong>: <code>45 Minutes</code></li>
+                                       <li><strong>Quality Checking</strong>: <code>20 Minutes</code></li>
+                                   </ul></li>
+                                   <li>These deadlines are used by the bot's reminder system to notify staff and admins about overdue tasks claimed via claim buttons.</li>
+                                </ul>
+                           </div>
+                            <div class="image-area">
+                                <div class="command-image-wrapper">
+                                    <div class="carousel-container" aria-label="Series Deadlines Command Screenshots">
+                                        <img src="images\seriesdeadlines.png" alt="Series Deadlines Command Example 1" draggable="false" data-fullscreenable="true">
+                                    </div>
+                                </div>
+                                <div class="carousel-dots" aria-hidden="true"></div>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+            </main>
+        </div> 
+
+    </div> 
+
+
+    
+    <div id="fullscreen-overlay">
+        <div class="fullscreen-controls">
+            <div class="fullscreen-controls-left">
+                 <span id="fullscreen-counter" class="fullscreen-info"></span>
+            </div>
+            <div class="fullscreen-controls-right">
+                <button id="fullscreen-zoom-out" class="fullscreen-control-btn" aria-label="Zoom out" title="Zoom Out">-</button>
+                <button id="fullscreen-zoom-in" class="fullscreen-control-btn" aria-label="Zoom in" title="Zoom In">+</button>
+                 <button id="fullscreen-zoom-reset" class="fullscreen-control-btn" aria-label="Reset zoom" title="Reset Zoom">↺</button>
+                <button id="fullscreen-close" class="fullscreen-control-btn" aria-label="Close fullscreen image viewer" title="Close (Esc)">×</button>
+            </div>
+        </div>
+
+        <button id="fullscreen-prev" class="fullscreen-nav-btn" aria-label="Previous image" title="Previous (←)"><</button>
+        <div class="fullscreen-image-container">
+            <img id="fullscreen-image" src="" alt="Fullscreen Image">
+        </div>
+        <button id="fullscreen-next" class="fullscreen-nav-btn" aria-label="Next image" title="Next (→)">></button>
+
+         <div id="fullscreen-dots" class="fullscreen-dots-container">
+         </div>
+    </div>
+
+    
+    <script src="script.js" defer></script>
+</body>
+</html>
